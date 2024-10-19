@@ -1,0 +1,18 @@
+body{
+	margin: 0 20%;
+	font-family: consolas;
+}
+h1{
+	text-align: center;
+}
+p{
+	text-indent: 5%;
+	text-align: justify;
+}
+.active:hover {
+	background-color: #9fdb;
+}
+.active2:hover {
+	background-color: #9fd6;
+}
+
