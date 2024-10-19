@@ -1,0 +1,51 @@
+body{
+	margin: 0 20%;
+	font-family: consolas;
+}
+h1{
+	text-align: center;
+}
+p{
+	text-indent: 5%;
+	text-align: justify;
+}
+.active:hover {
+	background-color: #9fdb;
+}
+.active2:hover {
+	background-color: #9fd6;
+}
+.slider {
+	width: 800px;	height: 600px;
+	position: relative;
+	display: inline-block;
+}
+.buttonR, .buttonL {
+	width: 100px;	height: 600px;
+	position: absolute;
+	display: inline-block;
+	background-color: #fff1;
+	color: #888;
+}
+.buttonL {
+	left: 0px;
+}
+.buttonR {
+	left: 700px;
+}
+.buttonL:hover, .buttonR:hover{
+	background-color: #fff7;
+	color: #000;
+}
+.buttonL:active, .buttonR:active  {
+	background-color: #0007;
+}
+.slider img {
+	position: absolute;
+	left: 0px;
+	opacity: 0;
+}
+.slider img.active {
+	opacity: 1;
+}
+
