@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+@font-face {
+  font-family: 'AqumTwoSmallCaps';
+  src: url(fonts/aqum-two-small-caps.otf);
+}
+
+@font-face {
+  font-family: 'CaveatBold';
+  src: url(fonts/Caveat-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Arkship';
+  src: url(fonts/arkship.ttf);
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body {
+   line-height: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #090d22; /*одинаковый цвет для body и для container*/
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Контейнер с фиксированной шириной */
+.container {
+    width: 1440px;
+    height: 5600px;
+    position: relative;
+    background-color: #090d22; /*одинаковый цвет для body и для container*/
+}
+
+/* Контейнер с фиксированной шириной */
+.container.subscriptions{
+    height: 833px;
+}
+
+/* Общие стили для элементов */
+.text-element, .background-image, .button-element {
+    position: absolute;
+	
+}
+
+/* Статические стили для положения и размеров элементов при ширине экрана от 1440px и выше */
+.text-element {
+    top: calc(var(--y) * 1px);
+    left: calc(var(--x) * 1px);
+    font-size: calc(var(--font-size) * 1px);
+    font-family: var(--font-family);
+    color: var(--font-color);
+}
+
+.background-image {
+	transition: transform 0.3s ease-in-out; /* Плавный переход */
+	
+	
+    top: calc(var(--y) * 1px);
+    left: calc(var(--x) * 1px);
+    width: calc(var(--width) * 1px);
+    height: calc(var(--height) * 1px);
+	
+	/* Запрет на выделение и взаимодействие */
+    user-select: none;  /*Запрещает выделение изображения */
+    pointer-events: none; /*Отключает любые взаимодействия с изображением */
+    -webkit-user-drag: none; /*Запрещает перетаскивание изображения в Safari/Chrome */
+}
+
+.background-image img {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Кнопка с фоновым изображением и позиционируемым текстом */
+.button-element {
+    top: calc(var(--y) * 1px);
+    left: calc(var(--x) * 1px);
+    width: calc(var(--width) * 1px);
+    height: calc(var(--height) * 1px);
+    font-size: calc(var(--font-size) * 1px);
+    background-image: var(--background-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+	background-color: transparent; /* Поддержка прозрачного фона */
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+	
+	transition: filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Текст внутри кнопки с возможностью позиционирования */
+.button-text {
+	margin: 0;
+    position: absolute;
+    top: calc(var(--text-y) * 1px);
+    left: calc(var(--text-x) * 1px);
+	font-family: var(--font-family);
+    color: var(--font-color);
+}
+
+/* Масштабирование при уменьшении экрана меньше 1440px */
+@media (max-width: 1439px) {
+    .text-element {
+        top: calc(var(--y) * (100vw / 1440));
+        left: calc(var(--x) * (100vw / 1440));
+        font-size: calc(var(--font-size) * (100vw / 1440));
+        font-family: var(--font-family);
+        color: var(--font-color);
+    }
+
+    .background-image {
+        top: calc(var(--y) * (100vw / 1440));
+        left: calc(var(--x) * (100vw / 1440));
+        width: calc(var(--width) * (100vw / 1440));
+        height: calc(var(--height) * (100vw / 1440));
+    }
+
+    .background-image img {
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    .button-element {
+        top: calc(var(--y) * (100vw / 1440));
+        left: calc(var(--x) * (100vw / 1440));
+        width: calc(var(--width) * (100vw / 1440));
+        height: calc(var(--height) * (100vw / 1440));
+        font-size: calc(var(--font-size) * (100vw / 1440));
+        background-image: var(--background-image);
+		background-color: transparent; /* Поддержка прозрачного фона */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .button-text {
+        top: calc(var(--text-y) * (100vw / 1440));
+        left: calc(var(--text-x) * (100vw / 1440));
+		font-family: var(--font-family);
+        color: var(--font-color);
+    }
+}
+
+
+.background-image.new1:hover {
+    transform: scale(1.093);
+}
+
+.background-image.new2:hover {
+    transform: scale(1.06);
+}
+
+.button-element.button1:hover{
+	mix-blend-mode: screen;
+	filter: brightness(1.2); /* Засветление кнопки */
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)); /* Свечение по краям изображения */
+}
+
+
+.button-element.button2:hover{
+	transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавное увеличение и свечение */
+	background: radial-gradient(circle, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.01) 100%),
+            linear-gradient(120deg, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.01) 100%);
+
+
+	transform: scale(1.05); /* Небольшое увеличение */
+}
